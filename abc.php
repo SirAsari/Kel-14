@@ -18,11 +18,14 @@
     
     
     $sql = "insert into biodata (nama, nis, rayon, rombel) values ('$nama', '$nis', '$rayon', '$rombel')";
-    $sql = "insert into nilai (Produktif, MTK, Indonesia, Informatika) value ('$prod', '$mtk', '$indo', '$infor')";
-
-if(mysqli_query($server, $sql)) {
-   echo "<br>pemyimpanan berhasil";
-} else {
-    echo "<br>penyimpanan gagal";
-}
+    // $sql1 = "insert into nilai (Produktif, MTK, Indonesia, Informatika) value ('$prod', '$mtk', '$indo', '$infor')";
+    $query = mysqli_query($server, $sql);
+    
+    if ($query) {
+        $sql2 = "INSERT INTO nilai (Produktif, MTK, Indonesia, Informatika) values ('$prod', '$mtk', '$indo', '$infor')";
+        $hasil = mysqli_query($server, $sql2);
+        echo "Berhasil terkirim";
+    } else {
+        echo "Gagal terkirim"; 
+    }
 ?>
